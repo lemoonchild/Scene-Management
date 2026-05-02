@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class LevelCarousel : MonoBehaviour
 {
@@ -59,7 +60,6 @@ public class LevelCarousel : MonoBehaviour
 
     public void OnStartLevelPressed()
     {
-        // LoadingManager.Instance.LoadScene(sceneNames[currentIndex]);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene(sceneNames[currentIndex]);
     }
 }

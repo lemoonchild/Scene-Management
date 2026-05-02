@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -15,8 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnPlayPressed()
     {
-        // LoadingManager.Instance.LoadScene("Level1");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("Level01");
     }
 
     public void OnSelectLevelPressed()
