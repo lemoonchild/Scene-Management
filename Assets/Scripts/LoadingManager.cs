@@ -6,11 +6,6 @@ public class LoadingManager : MonoBehaviour
 {
     public static LoadingManager Instance;
 
-    private void Start()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     private void Awake()
     {
         if (Instance == null)
@@ -19,6 +14,12 @@ public class LoadingManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Bootstrap")
+            SceneManager.LoadScene("MainMenu");
     }
 
     public static LoadingManager GetOrCreate()
@@ -46,7 +47,7 @@ public class LoadingManager : MonoBehaviour
         AsyncOperation targetScene = SceneManager.LoadSceneAsync(sceneName);
         targetScene.allowSceneActivation = false;
 
-        float minTime = 5f;
+        float minTime = 2.5f;
         float elapsed = 0f;
 
         while (targetScene.progress < 0.9f || elapsed < minTime)
